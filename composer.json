@@ -1,0 +1,11 @@
+{
+    "name": "f4/globo",
+    "autoload": {
+        "psr-4": {
+            "F4\\Globo\\": "src/"
+        }
+    },
+    "require": {
+        "firebase/php-jwt": "^7.0"
+    }
+}

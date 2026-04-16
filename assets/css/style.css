@@ -1,0 +1,611 @@
+/* --- VARIABILI E RESET --- */
+:root {
+    --globo-yellow: #FFC244;
+    --globo-dark: #333333;
+    --globo-light-gray: #f2f2f2;
+    --text-main: #2d3333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* --- HEADER --- */
+.globo-header {
+    background-color: #fff;
+    height: 72px;
+    border-bottom: 1px solid #eeeeee;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Sinistra: Logo e Input finto */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.globo-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.brand-name {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--globo-yellow);
+    letter-spacing: -1px;
+}
+
+.address-selector {
+    display: flex;
+    align-items: center;
+    background: var(--globo-light-gray);
+    padding: 10px 16px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.address-selector:hover {
+    background: #e8e8e8;
+}
+
+.address-text {
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 8px;
+    color: var(--text-main);
+}
+
+/* Destra: Bottoni e Carrello */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.btn-primary {
+    background-color: var(--globo-yellow);
+    color: var(--text-main);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 100px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.btn-primary:active {
+    transform: scale(0.95);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: none;
+    font-weight: 600;
+    color: var(--text-main);
+    cursor: pointer;
+}
+
+.cart-icon {
+    display: block;
+    position: relative;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.badge {
+    top: -5px;
+    right: -10px;
+    background: var(--globo-yellow);
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px 12px;
+    border-radius: 10px;
+}
+
+/* --- FOOTER --- */
+.main-footer {
+    background: #1d1d1d;
+    color: #fff;
+    padding: 80px 24px 40px;
+    margin-top: 100px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+}
+
+.footer-logo {
+    color: var(--globo-yellow); /* Corretto typo da --glovo a --globo */
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.footer-column h4 {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.footer-column ul li a:hover {
+    color: var(--globo-yellow); /* Corretto typo da --glovo a --globo */
+}
+
+.app-btn {
+    display: block;
+    width: 160px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background: #333;
+    color: white;
+    border: 1px solid #444;
+    cursor: pointer;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    color: #777;
+    font-size: 0.9rem;
+}
+
+/* --- MEDIA QUERIES --- */
+
+/* Mobile Header */
+@media (max-width: 768px) {
+    .address-selector, .btn-secondary {
+        display: none;
+    }
+    
+    .brand-name {
+        display: none;
+    }
+}
+
+/* Hero / Responsive adjustments */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 40px;
+    }
+    .hero-content h1 { font-size: 2.5rem; }
+    .search-box { flex-direction: column; border-radius: 20px; }
+    .btn-search { margin-top: 10px; }
+    .hero-image { display: none; }
+}
+
+/* --- STILI SPECIFICI PAGINA 404 --- */
+
+.error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100-72px); /* Sottrae l'altezza dell'header */
+    padding: 60px 24px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.error-content {
+    max-width: 500px;
+}
+
+.error-illustration {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Cerchio giallo iconico stile Glovo */
+.circle-bg {
+    width: 180px;
+    height: 180px;
+    background-color: var(--globo-yellow);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(255, 194, 68, 0.3);
+}
+
+.error-code {
+    font-size: 64px;
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 32px;
+    line-height: 1.5;
+}
+
+.error-actions .btn-primary {
+    display: inline-block;
+    text-decoration: none;
+    padding: 16px 40px;
+    font-size: 16px;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 480px) {
+    .circle-bg {
+        width: 140px;
+        height: 140px;
+    }
+    .error-code {
+        font-size: 48px;
+    }
+    h1 {
+        font-size: 24px;
+    }
+}
+
+/* --- STILI SPECIFICI PAGINA LOGOUT --- */
+
+.logout-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 72px);
+    background-color: var(--globo-light-gray); /* Sfondo grigio chiaro come da tua variabile */
+    padding: 20px;
+}
+
+.logout-card {
+    background: white;
+    padding: 48px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+}
+
+.icon-container {
+    width: 100px;
+    height: 100px;
+    background-color: var(--globo-yellow);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 24px;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 16px;
+}
+
+p {
+    font-size: 16px;
+    color: #5e6d6d;
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+.logout-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.logout-actions .btn-primary {
+    width: 100%;
+    padding: 16px;
+    font-size: 16px;
+    /* La transizione active è già nel tuo style.css */
+}
+
+.btn-secondary-link {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 8px;
+    transition: opacity 0.2s;
+}
+
+.btn-secondary-link:hover {
+    opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .logout-card {
+        padding: 32px 24px;
+    }
+}
+
+/* --- STILE FEED & POST (Specifico per il tuo PHP) --- */
+
+.feed {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 0 15px;
+}
+
+.post {
+    background: #ffffff;
+    border: 1px solid #e6e6e6;
+    margin-bottom: 30px;
+    border-radius: 12px; /* Angoli arrotondati come stile Glovo */
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+
+/* Header del post con Avatar */
+.post-header {
+    display: flex;
+    align-items: center;
+    padding: 14px 16px;
+    background: #fff;
+}
+
+.avatar {
+    width: 36px;
+    height: 36px;
+    background: var(--globo-yellow); /* Usa il tuo giallo come segnaposto */
+    border-radius: 50%;
+    margin-right: 12px;
+    border: 1px solid #eee;
+}
+
+.username {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--globo-dark);
+}
+
+/* Immagine principale */
+.post img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-top: 1px solid #f9f9f9;
+    border-bottom: 1px solid #f9f9f9;
+}
+
+/* Area contenuti sotto l'immagine */
+.post-content {
+    padding: 16px;
+}
+
+.actions {
+    font-size: 22px;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 15px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.likes {
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: var(--globo-dark);
+}
+
+.description {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #444;
+}
+
+.description b {
+    margin-right: 6px;
+    color: var(--globo-dark);
+}
+
+/* Box dei commenti */
+.comment-box {
+    border-top: 1px solid #efefef;
+    padding: 4px 16px;
+}
+
+.comment-box input {
+    width: 100%;
+    padding: 15px 0;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #262626;
+    background: transparent;
+}
+
+.comment-box input::placeholder {
+    color: #999;
+}
+
+/* Hover effect sui post */
+.post:hover {
+    border-color: #d1d1d1;
+    transition: border-color 0.3s ease;
+}
+/* --- STILE LOGIN --- */
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 72px);
+    background-color: var(--globo-light-gray);
+    padding: 20px;
+}
+
+.login-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+    max-width: 400px;
+    width: 100%;
+}
+
+.login-card h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--globo-dark);
+    margin-bottom: 8px;
+}
+
+.login-card p {
+    color: #666;
+    margin-bottom: 32px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: var(--globo-dark);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: var(--globo-yellow);
+}
+
+.form-footer {
+    margin-bottom: 24px;
+    text-align: right;
+}
+
+.forgot-password {
+    font-size: 13px;
+    color: #00a082; /* Colore accento tipico delivery */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn-full {
+    width: 100%;
+    padding: 16px;
+    font-size: 16px;
+}
+
+.register-hint {
+    margin-top: 24px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+}
+
+.register-hint a {
+    color: var(--globo-dark);
+    font-weight: 700;
+    text-decoration: none;
+}
+/* --- STILE CARICAMENTO AUTH --- */
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffffff;
+    text-align: center;
+    padding: 20px;
+}
+
+.loader-content {
+    max-width: 400px;
+}
+
+.spinner-wrapper {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid var(--globo-light-gray); /* Colore base grigio */
+    border-top: 6px solid var(--globo-yellow);  /* Colore brand giallo */
+    border-radius: 50%;
+}
+
+.loader-content h1 {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--globo-dark);
+    margin-bottom: 12px;
+}
+
+.loader-content p {
+    color: #888;
+    font-size: 15px;
+}
