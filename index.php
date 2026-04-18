@@ -16,7 +16,7 @@ $page = $_GET['page'];
 // 3. Sistema di routing semplice
 // Definiamo le pagine permesse per sicurezza
 //$allowed_pages = ['home', 'prodotti', 'profilo', 'dashboard', 'login'];
-$allowed_pages = ['home', 'login', 'logout', '404', 'auth'];
+$allowed_pages = ['home', 'login', 'logout', '404', 'authLogin', 'authSingUp', 'singUp'];
 
 if (!in_array($page, $allowed_pages)) {
     $page = '404'; // Pagina non trovata

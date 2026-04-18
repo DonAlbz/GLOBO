@@ -52,7 +52,7 @@
                     $email = $decoded->email;
                     echo '<button class="btn-secondary" onclick="location.href=\'index.php?page=logout\'">Logout (' . $email . ')</button>';
                 } catch (Exception $e) {
-                    echo '<button class="btn-primary">Registrati</button>';
+                    echo '<button class="btn-primary" onclick="location.href=\'index.php?page=singUp\'">Registrati</button>';
                     echo '<button class="btn-secondary" onclick="location.href=\'index.php?page=login\'">Login</button>';
                 }
                 ?>

@@ -3,7 +3,7 @@
         <h1>Bentornato!</h1>
         <p>Inserisci i tuoi dati per ordinare</p>
 
-        <form action="./index.php?page=auth" method="POST" class="login-form">
+        <form action="./index.php?page=authLogin" method="POST" class="login-form">
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="esempio@mail.it" required>
@@ -22,7 +22,7 @@
         </form>
 
         <div class="register-hint">
-            Non hai un account? <a href="#">Registrati</a>
+            Non hai un account? <a href="./index.php?page=singUp">Registrati</a>
         </div>
     </div>
 </main>

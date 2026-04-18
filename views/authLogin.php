@@ -58,11 +58,8 @@ curl_close($ch);
 $result = json_decode($response, true);
 
 if ($status === 200 || $status === 201) {
-
-    header("Location: ./index.php");
-} else {
     $payload = [
-        'email' => 'r4Eo9@example.com',
+        'email' => $email,
         'iat'   => time(),           // issued at
         'exp'   => time() + 3600,    // scadenza
     ];
@@ -76,7 +73,10 @@ if ($status === 200 || $status === 201) {
         'httponly' => true,
         'samesite' => 'Lax',
     ]);
+
     header("Location: ./index.php");
+} else {
+    header("Location: ./index.php?page=login");
     exit;
 }
 ?>
