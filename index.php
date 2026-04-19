@@ -15,9 +15,7 @@ $page = $_GET['page'];
 
 // 3. Sistema di routing semplice
 // Definiamo le pagine permesse per sicurezza
-//$allowed_pages = ['home', 'prodotti', 'profilo', 'dashboard', 'login'];
-$allowed_pages = ['home', 'login', 'logout', '404', 'authLogin', 'authSingUp', 'singUp'];
-
+$allowed_pages = ['home', 'login', 'logout', '404', 'authLogin', 'authSingUp', 'singUp', 'profile', 'restaurant'];
 if (!in_array($page, $allowed_pages)) {
     $page = '404'; // Pagina non trovata
 }
@@ -27,14 +25,22 @@ if (!in_array($page, $allowed_pages)) {
 // 4. Gestione del login
 if ($page === 'logout') {
     include 'controllers/logout.php';
+    include 'templates/header.php';
+    include 'views/' . 'logout' . '.php';
+    include 'templates/footer.php';
+} else if ($_GET['page'] === 'restaurant' && isset($_GET['id'])) {
+
+    include 'templates/header.php';
+    include 'controllers/restaurantId.php';
+    include 'templates/footer.php';
+} else {
+    // 5. Rendering del Frontend (View) 
+    // Includiamo l'header comune (dove metterai Motion One)
+    include 'templates/header.php';
+
+    // Includiamo il contenuto dinamico della pagina
+    include 'views/' . $page . '.php';
+
+    // Includiamo il footer comune
+    include 'templates/footer.php';
 }
-
-// 5. Rendering del Frontend (View) 
-// Includiamo l'header comune (dove metterai Motion One)
-include 'templates/header.php';
-
-// Includiamo il contenuto dinamico della pagina
-include 'views/' . $page . '.php';
-
-// Includiamo il footer comune
-include 'templates/footer.php';

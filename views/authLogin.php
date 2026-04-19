@@ -75,6 +75,7 @@ if ($status === 200 || $status === 201) {
     ]);
 
     header("Location: ./index.php");
+    exit;
 } else {
     header("Location: ./index.php?page=login");
     exit;
